@@ -16,19 +16,25 @@
     <!-- End Image Header -->
 
     <!-- Login Form -->
-    <form class="mt-4 space-y-6" action="#" method="POST">
+    <form
+      class="mt-4 space-y-6"
+      (ngSubmit)="submitForm()"
+      method="POST"
+      [formGroup]="loginForm"
+    >
       <input type="hidden" name="remember" value="true" />
       <div class="rounded-md shadow-sm -space-y-px">
         <div>
-          <label for="email-address" class="sr-only">Email address</label>
+          <label for="username" class="sr-only">Email address</label>
           <input
-            id="email-address"
-            name="email"
-            type="email"
-            autocomplete="email"
-            required
+            id="username"
+            name="username"
+            type="text"
+            autocomplete="off"
             class="appearance-none rounded-none relative block w-full px-3 py-2 border bg-gray-800 border-gray-600 placeholder-gray-300 text-white rounded-t-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm"
-            placeholder="Email address"
+            placeholder="Name"
+            formControlName="username"
+            required
           />
         </div>
         <div>
@@ -41,13 +47,17 @@
             required
             class="appearance-none rounded-none relative block w-full px-3 py-2 border bg-gray-800 border-gray-600 placeholder-gray-300 text-white rounded-b-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm"
             placeholder="Password"
+            formControlName="password"
           />
         </div>
       </div>
       <!-- End Login Form -->
 
       <!-- Forgot password text -->
-      <div class="flex items-center justify-end">
+      <div class="flex items-center justify-between">
+        <div class="text-sm text-red-500" *ngIf="incorrectLoginAttempt">
+          Incorrect password entered
+        </div>
         <div class="text-sm">
           <a href="#" class="font-medium text-orange-600 hover:text-orange-500">
             Forgot your password?
