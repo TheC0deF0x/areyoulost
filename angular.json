@@ -7,7 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "css"
         },
         "@schematics/angular:application": {
           "strict": true
@@ -25,14 +25,14 @@
             "main": "angular/src/main.ts",
             "polyfills": "angular/src/polyfills.ts",
             "tsConfig": "angular/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
+            "inlineStyleLanguage": "css",
             "assets": [
               "angular/src/favicon.ico",
               "angular/src/assets",
               "angular/src/manifest.json"
             ],
             "styles": [
-              "angular/src/styles.scss"
+              "angular/src/styles.css"
             ],
             "scripts": []
           },

@@ -4,24 +4,15 @@
   "short_name": "areyoulost",
   "version": "1.0.0",
   "description": "Generated with @larscom/ng-chrome-extension",
-  "permissions": [
-    "tabs"
-  ],
+  "permissions": ["tabs"],
   "action": {
     "default_popup": "index.html?#/popup",
     "default_title": "Angular Chrome Extension"
   },
-  "chrome_url_overrides": {
-    "newtab": "index.html?#/tab"
-  },
   "content_scripts": [
     {
-      "js": [
-        "contentPage.js"
-      ],
-      "matches": [
-        "<all_urls>"
-      ]
+      "js": ["contentPage.js"],
+      "matches": ["<all_urls>"]
     }
   ],
   "background": {
