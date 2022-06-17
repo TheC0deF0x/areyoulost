@@ -6,7 +6,7 @@
   "description": "Generated with @larscom/ng-chrome-extension",
   "permissions": ["tabs"],
   "action": {
-    "default_popup": "index.html?#/popup",
+    "default_popup": "index.html?#/",
     "default_title": "Angular Chrome Extension"
   },
   "content_scripts": [

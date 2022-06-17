@@ -1,12 +1,10 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { SignInComponent } from "./components/sign-in/sign-in.component";
 
 const routes: Routes = [
-  {
-    path: "popup",
-    loadChildren: () =>
-      import("./modules/popup/popup.module").then((m) => m.PopupModule),
-  },
+  { path: "", redirectTo: "signin", pathMatch: "full" },
+  { path: "signin", component: SignInComponent },
 ];
 
 @NgModule({
