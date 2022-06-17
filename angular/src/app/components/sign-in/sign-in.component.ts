@@ -22,7 +22,14 @@ export class SignInComponent implements OnInit {
     private userService: UserService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userService.checkLocalStorage().then((result: string) => {
+      if (result) {
+        this.userService.name = result;
+        this.router.navigate(["signedin"]);
+      }
+    });
+  }
 
   submitForm() {
     const UserCredentials: UserCredentials = this.loginForm.value;

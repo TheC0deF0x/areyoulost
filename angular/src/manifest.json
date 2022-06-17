@@ -3,8 +3,8 @@
   "name": "areyoulost",
   "short_name": "areyoulost",
   "version": "1.0.0",
-  "description": "Generated with @larscom/ng-chrome-extension",
-  "permissions": ["tabs"],
+  "description": "Lost and lonely",
+  "permissions": ["tabs", "storage"],
   "action": {
     "default_popup": "index.html?#/",
     "default_title": "Angular Chrome Extension"
