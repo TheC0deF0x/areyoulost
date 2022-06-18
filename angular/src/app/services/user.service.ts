@@ -28,13 +28,6 @@ export class UserService {
         if (result.name) {
           // We have the users details
           this.name = result.name;
-
-          // Message the content worker to instruct it to carry out actions
-          chrome.tabs.query({}, (tabs) => {
-            tabs.forEach((tab) => {
-              chrome.tabs.sendMessage(tab.id, "Hello friend.");
-            });
-          });
           resolve(result.name);
         } else {
           reject("No user in local storage");
