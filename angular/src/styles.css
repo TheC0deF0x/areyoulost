@@ -8,8 +8,3 @@ html {
   height: 200px;
   width: 400px;
 }
-
-html > body {
-  border: 1px solid orange;
-  border-radius: 25px;
-}
