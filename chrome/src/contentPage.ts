@@ -1,10 +1,3 @@
-// Add a listener for messages from the user service
-// chrome.runtime.onMessage.addListener(function (request) {
-//   if(request.action == 'inject') {
-
-//   }
-// });
-
 // Check if the user is logged in. If they are then we can monitor them
 chrome.storage.local.get(["name"], function (userObj) {
   // If we have the users name stored then we can inject the monitoring script
@@ -17,6 +10,22 @@ chrome.storage.local.get(["name"], function (userObj) {
 // We don't need to prompt them every single time they're inactive for 5 seconds.
 let prompted: boolean = false;
 
+// Function to prompt the user if they're lost
+const askIfLost = function () {
+  // Only run if we've not already prompted them
+  if (!prompted) {
+    console.log("Are you lost?");
+    // We need to get the webcomponent from angular...
+    prompted = true;
+    // fetch(chrome.runtime.getURL("/prompt.component.html"))
+    //   .then((r) => r.text())
+    //   .then((html) => {
+    //     document.body.insertAdjacentHTML("beforeend", html);
+    //     // not using innerHTML as it would break js event listeners of the page
+    //   });
+  }
+};
+
 function monitorDwellTime() {
   console.log("Activating monitoring...");
   let inactivityTime = function () {
@@ -27,12 +36,6 @@ function monitorDwellTime() {
     // Reset if the user presses a key
     document.addEventListener("keydown", resetTimer);
 
-    // Prompt the user
-    function askIfLost() {
-      console.log("Are you lost?");
-      prompted = true;
-    }
-
     // Reset the timer count
     function resetTimer() {
       clearTimeout(time);
@@ -42,6 +45,3 @@ function monitorDwellTime() {
   inactivityTime();
   console.log("Please wait...");
 }
-
-// TODO
-// Add a message for when a user logs in to begin the injection.

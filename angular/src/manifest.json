@@ -12,6 +12,13 @@
   "content_scripts": [
     {
       "js": ["contentPage.js"],
+      "matches": ["<all_urls>"],
+      "css": ["styles.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["prompt.component.html"],
       "matches": ["<all_urls>"]
     }
   ],
