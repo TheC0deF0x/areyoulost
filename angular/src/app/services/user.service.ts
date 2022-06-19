@@ -13,12 +13,11 @@ export class UserService {
     chrome.storage.local.set({ name: user.username }, function () {});
     this.name = user.username;
 
+    console.log("Authenticated users");
     // Message the content worker to instruct it to carry out actions
-    // chrome.tabs.query({}, (tabs) => {
-    //   tabs.forEach((tab) => {
-    //     chrome.tabs.sendMessage(tab.id, "Hello friend.");
-    //   });
-    // });
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, { action: "inject" });
+    });
   }
 
   checkLocalStorage() {
